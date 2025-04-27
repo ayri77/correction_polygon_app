@@ -95,4 +95,10 @@ correction_polygon_app/
 
 MIT License
 
+## 📬 Контакты
+
+- Email: [pborisov77@gmail.com](mailto:pborisov77@gmail.com)
+- LinkedIn: [https://www.linkedin.com/in/pavlo-borysov-45067071](https://www.linkedin.com/in/pavlo-borysov-45067071)
+- GitHub: [https://github.com/ayri77](https://github.com/ayri77)
+
 ---
