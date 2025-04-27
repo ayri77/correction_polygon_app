@@ -5,71 +5,71 @@
 ![Render](https://img.shields.io/badge/Hosted%20on-Render-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
 
-🚀 Простое и эффективное API для коррекции координат полигонов с помощью обученной модели машинного обучения.
+🚀 A simple and efficient API for polygon coordinate correction using a trained machine learning model.
 
 ---
 
-## 📚 Описание
+## 📚 Description
 
-Это приложение принимает полигон (в системе координат SC63 или WGS84),  
-вычисляет центроид, предсказывает коррекцию через обученную модель,  
-и возвращает:
+This application accepts a polygon (in SC63 or WGS84 coordinate systems),  
+computes the centroid, predicts correction using a trained model,  
+and returns:
 
-- Новый центроид полигона
-- Предсказанную дельту смещения
-- Новый пересчитанный полигон
+- A new centroid of the polygon
+- Predicted shift delta
+- A new corrected polygon
 
-Реализация построена на основе **FastAPI** и задеплоено на **Render**.
+Built with **FastAPI** and deployed on **Render**.
 
 ---
 
-## 🌐 Демо
+## 🌐 Demo
 
-Документация API доступна здесь:  
+API documentation is available here:  
 🔝 [https://correction-polygon-app.onrender.com/docs](https://correction-polygon-app.onrender.com/docs)
 
 ---
 
-## 🚀 Быстрый старт локально
+## 🚀 Quick Start (Local)
 
 ```bash
-# Клонировать репозиторий
+# Clone the repository
 git clone https://github.com/ayri77/correction_polygon_app.git
 cd correction_polygon_app
 
-# Установить зависимости
+# Install dependencies
 pip install -r requirements.txt
 
-# Запустить сервер
+# Start the server
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ---
 
-## 📦 Структура проекта
+## 📦 Project Structure
 
 ```
 correction_polygon_app/
-│
 ├── app/
-│   └── main.py           # Основной сервер FastAPI
+│   └── main.py           # Main FastAPI server
 │
 ├── model/
-│   └── model.pkl         # Обученная модель коррекции
+│   └── model.pkl         # Trained correction model
 │
 ├── utils/
-│   ├── coords.py         # Пересчёт координат SC63 → WGS84
-│   ├── features.py       # Генерация признаков
-│   ├── parser.py         # Парсинг входных данных
+│   ├── coords.py         # SC63 → WGS84 coordinate transformation
+│   ├── features.py       # Feature generation
+│   ├── parser.py         # Input data parsing
+│   └── visualization.py # Polygon visualization on a map
 │
-├── requirements.txt      # Зависимости проекта
-├── Procfile              # Конфигурация для Render
-└── README.md             # Документация проекта
+├── requirements.txt      # Project dependencies
+├── Procfile              # Render deployment configuration
+└── README.md             # Project documentation
 ```
 
 ---
 
-## ✨ Технологии
+## ✨ Technologies
 
 - Python 3.11
 - FastAPI
@@ -78,27 +78,33 @@ correction_polygon_app/
 - Numpy
 - Shapely
 - Pandas
-- Render (хостинг)
+- Folium
+- Render (hosting)
 
 ---
 
-## 🛠 Возможности для улучшения
+## 🛠 Potential Improvements
 
-- Обработка пакетных запросов (Batch API)
-- Построение карты изменений через Folium
-- Логирование и мониторинг запросов
-- Авторизация пользователей (по API-ключу)
+- Batch API request processing (already partially implemented)
+- Map visualization (already implemented)
+- Request logging and monitoring
+- User authorization (via API keys)
+- Model retraining pipeline for continuous learning
+- Validation for SC63 zone correctness
 
 ---
 
-## 📜 Лицензия
+## 📜 License
 
 MIT License
 
-## 📬 Контакты
+---
+
+## 📬 Contacts
 
 - Email: [pborisov77@gmail.com](mailto:pborisov77@gmail.com)
 - LinkedIn: [https://www.linkedin.com/in/pavlo-borysov-45067071](https://www.linkedin.com/in/pavlo-borysov-45067071)
 - GitHub: [https://github.com/ayri77](https://github.com/ayri77)
 
 ---
+
