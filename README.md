@@ -138,6 +138,9 @@ After testing multiple models for predicting coordinate corrections (SC63 → WG
   ![image](https://github.com/user-attachments/assets/d7f7f9d8-bfe9-4527-8d6a-44e94318163a)
 * Comparison plots: distance errors, IoU distribution, per-zone evaluation
   ![image](https://github.com/user-attachments/assets/7d4962e4-22c2-4eb7-8f40-1510aac2d972)
+
+  ![image](https://github.com/user-attachments/assets/297902ed-1930-4a11-90ff-b3e55c2ec840)
+
   ![image](https://github.com/user-attachments/assets/d1d3915a-8e91-414b-88e2-b5f56ac4a32b)
   ![image](https://github.com/user-attachments/assets/97a3a130-b476-407a-a2f4-4b7fa307301e)
   ![image](https://github.com/user-attachments/assets/555332b9-cd83-49cc-bc2b-9de3a35a4814)
