@@ -72,6 +72,28 @@ correction_polygon_app/
 ├── Procfile              # Render deployment configuration
 └── README.md             # Project documentation
 ```
+---
+## 🧠 Model Evaluation Summary
+
+After testing multiple models for predicting coordinate corrections (SC63 → WGS84), we selected the best based on Mean Absolute Error (in meters):
+
+| Model       | MAE Lon (m) | MAE Lat (m) | RMSE (°)   | R²         |
+|-------------|-------------|-------------|------------|------------|
+| LR          | 2.44        | 3.22        | 0.00031    | -0.0017    |
+| Ridge       | 2.45        | 3.18        | 0.00031    | -0.0016    |
+| Lasso       | 2.43        | 3.18        | 0.00031    | -0.0016    |
+| ElasticNet  | 2.44        | 3.19        | 0.00031    | -0.0016    |
+| RANSAC      | **2.36**    | **3.12**    | 0.00031    | -0.0016    |
+| Poly2 + LR  | 2.43        | 3.17        | 0.00031    | -0.0017    |
+| MLP         | 2.83        | 2.69        | 0.00031    | -0.0021    |
+| HGB         | 6.20        | 5.92        | 0.00068    | -0.0051    |
+| XGB         | 4.93        | 4.84        | 0.00060    | -0.0043    |
+
+📌 **Selected model:** `RANSAC Regressor`
+- Best combination of accuracy and robustness
+- Resistant to outliers and stable across zones
+
+📎 *Note: R² is not reliable in this case due to small target variance (sub-degree corrections).*
 
 ---
 
