@@ -23,6 +23,12 @@ Built with **FastAPI** and deployed on **Render**.
 
 ---
 
+### 🔐 Data Disclaimer
+
+The model was trained on a private dataset of real-world polygon coordinates (SC63 ↔ WGS84).  
+Due to data sensitivity, the training set is **not included** in the public repository.  
+However, a simplified JSON structure is described, and the API can be tested via the deployed demo.
+
 ## 🌐 Demo
 
 API documentation is available here:  
@@ -103,7 +109,6 @@ Corrected Polygon (WGS84):
 ![image](https://github.com/user-attachments/assets/11b7137a-2bae-49b7-b7dc-c5d0277d6cda)
 
 ![image](https://github.com/user-attachments/assets/69582961-e145-4bd8-85ac-344d5f8e2a05)
-
 
 Try it live: [https://correction-polygon-app.onrender.com/docs#/]
 
