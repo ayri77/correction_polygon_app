@@ -97,6 +97,61 @@ After testing multiple models for predicting coordinate corrections (SC63 → WG
 
 ---
 
+## 🔍 RANSAC – Detailed Polygon Evaluation
+
+**Highlights:**
+
+* Median distance to true centroid: **\~0.28m – 0.75m** (vs. 6–13m for baseline)
+* Median polygon IoU improved from **\~0.50–0.85 → \~0.94–0.99**
+* Some zones improved IoU by **40–60%**
+
+**Example Field:**
+
+* Distance to baseline center: 5.05 m
+* Distance to predicted center: 10.26 m
+* IoU with baseline: 86.11%
+* IoU with prediction: 99.37%
+
+**Zone Summary:**
+
+| Zone | Baseline Dist (m) | Predicted Dist (m) | IoU Baseline | IoU Predicted |
+| ---- | ----------------- | ------------------ | ------------ | ------------- |
+| 1    | 13.71             | 4.14               | 0.51         | **0.97**      |
+| 2    | 10.50             | 1.13               | 0.66         | **0.98**      |
+| 3    | 7.94              | 0.75               | 0.81         | **0.98**      |
+| 4    | 9.60              | 3.12               | 0.79         | **0.96**      |
+| 5    | 7.04              | 0.56               | 0.73         | **0.99**      |
+| 6    | 6.68              | 0.94               | 0.92         | **0.98**      |
+
+**Distribution Insights:**
+
+* Baseline polygons had wide error spread; model prediction concentrated near 1.0 IoU.
+* Visual distribution clearly shows clustering of predicted IoU around **0.99**, while baseline shows significant variance.
+
+📍 *Visual maps and analytic dashboards are available in the `results` folder and interactive demo.*
+
+📸 **Screenshots added:**
+
+* Map with polygon clusters across Ukraine
+  ![image](https://github.com/user-attachments/assets/18e7c2f6-06e4-40fb-ac3f-c6e98909dee6)
+* Detailed zoom-in with corrected vs. baseline geometry
+  ![image](https://github.com/user-attachments/assets/d7f7f9d8-bfe9-4527-8d6a-44e94318163a)
+* Comparison plots: distance errors, IoU distribution, per-zone evaluation
+  ![image](https://github.com/user-attachments/assets/7d4962e4-22c2-4eb7-8f40-1510aac2d972)
+  ![image](https://github.com/user-attachments/assets/d1d3915a-8e91-414b-88e2-b5f56ac4a32b)
+  ![image](https://github.com/user-attachments/assets/97a3a130-b476-407a-a2f4-4b7fa307301e)
+  ![image](https://github.com/user-attachments/assets/555332b9-cd83-49cc-bc2b-9de3a35a4814)
+  ![image](https://github.com/user-attachments/assets/ab8725ac-fbff-4d93-a939-a12d08de459b)
+
+✅ These visuals demonstrate the practical improvement achieved by applying coordinate correction via machine learning.
+
+---
+
+> For additional insight and replication, check out the full training and evaluation pipeline in the `notebooks/` folder (to be added soon).
+
+
+---
+
 ## ✨ Technologies
 
 - Python 3.11
