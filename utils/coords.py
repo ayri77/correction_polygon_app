@@ -133,3 +133,23 @@ def sc63_to_wgs84(x, y):
     """
     lon, lat, _, zone = tcoord(x, y)
     return lat, lon, zone
+
+def guess_sc63_zone_from_lon(lon: float) -> int:
+    """
+    Guess SC63 zone based on longitude.
+    Assumes 6 zones, central meridians spaced by 3° (step = 3.0), starting ~23.5°E.
+    """
+    if lon < 22 or lon > 40:
+        return 0
+    if lon < 25.0:
+        return 1
+    elif lon < 28.0:
+        return 2
+    elif lon < 31.0:
+        return 3
+    elif lon < 34.0:
+        return 4
+    elif lon < 37.0:
+        return 5
+    else:
+        return 6

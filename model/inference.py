@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from shapely.geometry import Polygon
 
-from utils.coords import sc63_to_wgs84
+from utils.coords import sc63_to_wgs84, guess_sc63_zone_from_lon
 from utils.features import compute_centroids
 from utils.parser import parse_input_data
 
@@ -83,7 +83,8 @@ def process_polygon(raw_polygon, model, input_crs="SC63"):
     if zone is not None:
         centroid_features = np.array([centroid_lon, centroid_lat, zone])
     else:
-        centroid_features = np.array([centroid_lon, centroid_lat])
+        zone = guess_sc63_zone_from_lon(centroid_lon)
+        centroid_features = np.array([centroid_lon, centroid_lat, zone])
 
     # Predict centroid shift
     delta_lon, delta_lat = predict_centroid_shift(model, centroid_features)
@@ -96,11 +97,11 @@ def process_polygon(raw_polygon, model, input_crs="SC63"):
     corrected_coords = [(lon + delta_lon, lat + delta_lat) for lon, lat in coords_wgs]
 
     # Debug output (optional, comment out if not needed)
-    # print("=== DEBUG POLYGON ===")
-    # print(f"Coords WGS after conversion: {coords_wgs}")
-    # print(f"Detected SC63 Zone: {zone}")
-    # if zone == 0:
-    #     print("⚠️ WARNING: SC63 Zone is 0! Coordinate conversion may be incorrect!")
+    print("=== DEBUG POLYGON ===")
+    print(f"Coords WGS after conversion: {coords_wgs}")
+    print(f"Detected SC63 Zone: {zone}")
+    if zone == 0:
+        print("⚠️ WARNING: SC63 Zone is 0! Coordinate conversion may be incorrect!")
 
     return {
         "corrected_centroid": (corrected_centroid_lon, corrected_centroid_lat),
